@@ -117,7 +117,7 @@ const questions = [
                 if (questionsInput) {
                 return true;
                 } else {
-                console.log('Please enter questions!');
+                console.log('Please enter questionsls!');
                 return false;
                 }
             }
@@ -131,11 +131,21 @@ const userInput = () => {
 }
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, content)
-}
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+            return console.log(err);
+        }
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() { 
+    inquirer.prompt(questions)
+    .then(function (userInput) {
+        console.log(userInput)
+        writeToFile("README.md", (userInput));
+    });
+};
 
 // Function call to initialize app
 init();

@@ -15,14 +15,14 @@ const questions = [
                 if (titleInput) {
                 return true;
                 } else {
-                console.log('Please enter a titile!');
+                console.log('Please enter a title!');
                 return false;
                 }
             }
         },
         {
             type: "input",
-            name: "desciption",
+            name: "description",
             message: "What is the description of the project?",
             validate: descriptionInput => {
                 if (descriptionInput) {
@@ -40,7 +40,7 @@ const questions = [
         },
         {
             type: "input",
-            name: "install",
+            name: "installation",
             message: "What are the steps for installation?",
             validate: installInput => {
                 if (installInput) {
@@ -70,9 +70,10 @@ const questions = [
             message: "Credit collaborators (if any)",
         },
         {
-            type: "input",
+            type: "checkbox",
             name: "license",
-            message: "What is the license information?",
+            message: "Chose a license.",
+            choices: ['Apache', 'Boost', 'Faas'],
             validate: licenseInput => {
                 if (licenseInput) {
                 return true;
@@ -134,14 +135,8 @@ const questions = [
                 }
             }
         }, 
-    ]
+    ];
 
-console.log(questions);
-
-const userInput = () => {
-    return inquirer
-        .prompt(questions)
-}
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 // const readmeString = generateMarkdown(data)

@@ -1,9 +1,8 @@
 const generateMarkdown = require('./utils/generateMarkdown');
-
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -70,18 +69,10 @@ const questions = [
             message: "Credit collaborators (if any)",
         },
         {
-            type: "checkbox",
+            type: "list",
             name: "license",
             message: "Chose a license.",
-            choices: ['Apache', 'Boost', 'Faas'],
-            validate: licenseInput => {
-                if (licenseInput) {
-                return true;
-                } else {
-                console.log('Please enter license information!');
-                return false;
-                }
-            }
+            choices: ['Apache', 'Boost', 'Faas', 'None'],
         },
         {
             type: "input",
@@ -131,6 +122,32 @@ const questions = [
                 return true;
                 } else {
                 console.log('Please enter tests!');
+                return false;
+                }
+            }
+        }, 
+        {
+            type: "input",
+            name: "username",
+            message: "What is your github username?",
+            validate: testsInput => {
+                if (testsInput) {
+                return true;
+                } else {
+                console.log('Please enter your username!');
+                return false;
+                }
+            }
+        }, 
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email?",
+            validate: testsInput => {
+                if (testsInput) {
+                return true;
+                } else {
+                console.log('Please enter your email!');
                 return false;
                 }
             }

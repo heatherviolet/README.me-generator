@@ -1,46 +1,60 @@
+const inquirer = require('inquirer');
 const fs = require('fs');
-const inquirer = require('inquiere');
-const index = require('../index.js');
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let badge = '';
   if(license === 'Apache') {
-    badge = '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
+    return  '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]'
   } else if (license === 'boost' ) {
-    badge = '![License](https://www.boost.org/LICENSE_1_0.txt)'
+    return '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]'
   } else if (license === 'faas') {
-    badge = '![OpenFaas](https://www.openfaas.com)'
-  } else {
-    badge = ''
+    return '[![OpenFaas](https://img.shields.io/badge/openfaas-cloud-blue.svg)]'
+  } else if (license === 'None') {
+    return ""
   }
-  return badge;
-}
+};
+
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if(license === 'Apache') {
+    license = 'https://opensource.org/licenses/Apache-2.0';
+  } else if (license === 'boost') {
+    license = 'https://www.boost.org/LICENSE_1_0.txt';
+  } else if (license === 'faas') {
+    license = 'https://www.openfaas.com';
+  } else if (license === 'None')
+  return ""
+};
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license === 'None') {
+    return ""
+  } 
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-  # License
-  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-  [![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
-  [![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)](https://www.openfaas.com)
+  ${renderLicenseLink(data.license)}
+  ${renderLicenseBadge(data.license)}
 
   ## Description
   ${data.description}
 
-  ## Table of Contents (Optional)
+  ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
+  * [Badges](#badges)
+  * [Features](#features)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
   
   ## Installation
   ${data.installation}
@@ -51,13 +65,16 @@ function generateMarkdown(data) {
   ## License
   ${data.license}
   ## Badges
-  ${data.badges}
+  ${renderLicenseSection(data.license)} 
   ## Features
   ${data.features}
   ## Contributing
   ${data.contributing}
-  ##Tests
+  ## Tests
   ${data.tests}
+  ## Questions?
+  ### [Github](https://github.com/${data.username})
+  ### [Email](${data.email})
 `;
 }
 

@@ -19,11 +19,11 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if(license === 'Apache') {
-    license = 'https://opensource.org/licenses/Apache-2.0';
+    return ('https://opensource.org/licenses/Apache-2.0')
   } else if (license === 'boost') {
-    license = 'https://www.boost.org/LICENSE_1_0.txt';
+    return ('https://www.boost.org/LICENSE_1_0.txt')
   } else if (license === 'faas') {
-    license = 'https://www.openfaas.com';
+    return ('https://www.openfaas.com')
   } else if (license === 'None')
   return ""
 };
@@ -31,10 +31,12 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license === 'None') {
-    return ""
-  } 
-}
+  if(licenseChoice === 'Apache') {
+    data.license = '[![Apache](https://opensource.org/licenses/Apache-2.0)'
+  }
+  };
+ 
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {

@@ -1,8 +1,10 @@
-# asf
- 
+# README.me Generator
+  
+  
+  
 
   ## Description
-  add
+  I created a README.me generator using node.js. I wrote functions to be able to have questions prompted and a user is able to answer and create a README. I also made my README for this page using my generator.
 
   ## Table of Contents
   * [Installation](#installation)
@@ -14,17 +16,17 @@
   * [Questions](#questions)
    
   ## Installation
-  dsa
+  The user must enter node index.js in the command line to run the application. They then must answer each question that is required. A README file is then generated.
   ## Usage
-  d
+  A README generator is useful for porjects because the template it laid out and makes writing a README much quicker and easier.
   ## Credits
   
   ## Features
-  d
+  Choose licenses to include in the README.
   ## Contributing
-  d
+  N/A
   ## Tests
-  d
+  N/A
   ## Questions?
-  ### [Github](https://github.com/d)
-  ### [Email](d)
+  ### [Github](https://github.com/heatherviolet)
+  ### [Email](heatherviolet91@gmail.com)

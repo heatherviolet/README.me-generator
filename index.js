@@ -72,20 +72,7 @@ const questions = [
             type: "list",
             name: "license",
             message: "Chose a license.",
-            choices: ['Apache', 'Boost', 'Faas', 'None'],
-        },
-        {
-            type: "input",
-            name: "badges",
-            message: "Include badges.",
-            validate: testsInput => {
-                if (testsInput) {
-                return true;
-                } else {
-                console.log('Please enter badge information!');
-                return false;
-                }
-            }
+            choices: ['Apache', 'Boost', 'Faas', 'MIT', 'None'],
         },
         {
             type: "input",
